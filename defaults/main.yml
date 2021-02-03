@@ -1,2 +1,10 @@
 ---
-# defaults file for test-role-1
+test_user: "test_user"
+test_email: "test_email"
+ipa_host: "host.example.com"
+ipa_user: "admin"
+ipa_pass: "pass"
+telephonenumber: '+555123456'
+uidnumber: "1001"
+gidnumber: "100"
+homedirectory: "/home/test"

@@ -1,2 +1,2 @@
 ---
-# tasks file for test-role-1
+- import_task: enabled_user.yml

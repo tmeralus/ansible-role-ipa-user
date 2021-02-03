@@ -1,38 +1,31 @@
-Role Name
+Ansible Role IPA User
 =========
-
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Ansible role used for creating, deleting, and modifying
+FreeIPA users.
 
 Role Variables
 --------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+* test_user: "test_user"
+* test_email: "test_email"
+* ipa_host: "host.example.com"
+* ipa_user: "admin"
+* ipa_pass: "pass"
+* mail: testuser@example.com
+* telephonenumber: '+555123456'
+* uidnumber: '1001'
+* gidnumber: '100'
+* homedirectory: /home/test
 
 Example Playbook
 ----------------
+#### Run playbook to create a new user
+* ansible-playbook -l <hostname> ansible-role-ipa-user/tasks/enabled_user.yml
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+#### Run playbook to disable a new user
+* ansible-playbook -l <hostname> ansible-role-ipa-user/disable_user.yml
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+#### Run playbook to disable 10 test users
+* ansible-playbook -l <hostname> ansible-role-ipa-user/tasks/disable_loop.yml
 
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+#### Run playbook to enable 10 test users with an expiration date  
+* ansible-playbook -l <hostname> ansible-role-ipa-user/tasks/enabled_loop.yml
